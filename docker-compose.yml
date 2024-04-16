@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  pokemon-database:
+    image: "postgres"
+    environment:
+      - POSTGRES_DB=poke_api_db
+      - POSTGRES_USER=pokemon
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - '54320:5432'
+    volumes:
+      - postgresql-volume:/var/lib/postgresql/data
+
+volumes: 
+  postgresql-volume:
+    external: true
